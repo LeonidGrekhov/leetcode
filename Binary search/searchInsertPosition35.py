@@ -29,7 +29,7 @@ nums contains distinct values sorted in ascending order.
 
 class Solution:
     def searchInsert(self, nums: list[int], target: int) -> int:
-        left, right = 0, len(nums) #set pointers to both sides of the array
+        left, right = 0, len(nums) - 1 #set pointers to both sides of the array
         while left < right:
             mid = (left + right) // 2 # find the middle of the array
             if target == nums[mid]: # if we get lucky and select the middle as the target we just return the position
@@ -39,5 +39,23 @@ class Solution:
             else:                  # if taget is less than middle
                 right = mid
         return left
+    
+    def searchInsert2(self, nums: list[int], target: int) -> int:
+        def recursive(left, right):
+            if left > right: return left # if my pointers pass each other that means 
+                                         #the left position is the location where the value should be inserted
+            mid = (left + right) // 2
+            if target == nums[mid]: # if we get lucky and select the middle as the target we just return the position
+                return mid
+            elif target > nums[mid]: # if taget is greater than middle
+                return recursive(mid + 1, right)
+            else:                    # if taget is less than middle
+                return recursive(left, mid -1)
+            
+        return recursive(0, len(nums) - 1)
+        
+
 s1 = Solution()
 print(s1.searchInsert(nums=[1,2,5,7], target=6))
+
+print(s1.searchInsert2(nums=[1,2,3,5,7,8,10,11], target=2))
