@@ -39,9 +39,17 @@ Constraints:
 1 <= nums.length <= 3 * 104
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.'''
+
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
-        l = 1
-        if len(nums) == 0:
+        leftPtr = 1 # start left pointer at position 1
+        if len(nums) == 0: # check for empty array
             return 0
+        for rightPtr in range(1, len(nums)): # start right pointer at position 1
+            if nums[rightPtr] != nums[rightPtr - 1]: # if the right pointer is not the same value as the value to its left
+                nums[leftPtr] = nums[rightPtr]       # replace value of left pointer with right and increment left pointer by 1 as right pointer increments automaticly through loop
+                leftPtr += 1
+        return leftPtr # left pointer also represents the number of uniques 
         
+s1 = Solution()
+print(s1.removeDuplicates(nums=[1,2,3,3,4,4,4,5,5,5]))
