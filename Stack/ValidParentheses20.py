@@ -35,13 +35,13 @@ class Solution:
         closeToOpen = { ")" : "(", "]" : "[", "}" : "{" } 
         #make a key for each closing bracket to check if there is an existing opening bracket
         for character in s:
-            if character in closeToOpen:
-                if stack and stack[-1] == closeToOpen[character]:
+            if character in closeToOpen: # if the closing bracket is in the key
+                if stack and stack[-1] == closeToOpen[character]: # if the bracket on the end of stack matches the key and stack not empty
                     stack.pop()
                 else:
                     return False
             else:
-                stack.append(character)
+                stack.append(character) #append opening bracket
         return True if not stack else False
         #return true if stack is empty otherwise return false
 
