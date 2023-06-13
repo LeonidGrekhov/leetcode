@@ -42,7 +42,7 @@ class Solution:
                     return False
             else:
                 stack.append(character) #append opening bracket
-        return True if not stack else False
+        return not stack
         #return true if stack is empty otherwise return false
 
 s1 = Solution()
