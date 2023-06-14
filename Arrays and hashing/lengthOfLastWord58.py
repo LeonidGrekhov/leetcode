@@ -34,6 +34,15 @@ class Solution:
         if wordlist:
             return len(wordlist[-1])
         return 0
-
-s1 =Solution()
+    def lengthOfLastWordWithPtr(self, s: str) -> int:
+        i, length = len(s) - 1, 0
+        while s[i] == " ": #loop through extra spaces in the back of the string
+            i -= 1
+        while i >= 0 and s[i] != " ": # count the characters that are not a space
+            length += 1
+            i -= 1
+        return length
+    
+s1 = Solution()
 print(s1.lengthOfLastWord(s="   fly me   to   the moon  "))
+print(s1.lengthOfLastWordWithPtr(s="   fly me   to   the moon  "))
