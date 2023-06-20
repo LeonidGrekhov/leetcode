@@ -31,6 +31,7 @@ Constraints:
 1 <= s.length <= 2 * 105
 s consists only of printable ASCII characters.
 '''
+import re
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         newStr = ""
@@ -40,6 +41,7 @@ class Solution:
         return newStr == newStr[::-1]
     
     def isPalindromePtr(self, s: str) -> bool:
+        s = re.sub(r'\W+', '', s) # s = re.sub(r'[^a-zA-Z0-9]', '', s)
         left, right = 0, len(s) - 1
         s = s.upper()
         while left < right:
