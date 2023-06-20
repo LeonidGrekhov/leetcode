@@ -43,9 +43,12 @@ class Solution:
                 digits[i]+=1
                 return digits
     
-        digits.append(0)            
-        digits[0] = 1
+        #digits.append(0)            
+        #digits[0] = 1
+        digits.insert(0, 1) # inserts digit 1 at the 0 position
         return digits
 s1 = Solution()
 print(s1.plusOne(digits=[2,8,9]))
+print(s1.plusOne(digits=[9]))
+print(s1.plusOne(digits=[1,2,3]))
     
