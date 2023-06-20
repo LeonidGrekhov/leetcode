@@ -25,3 +25,16 @@ Constraints:
 1 <= prices.length <= 105
 0 <= prices[i] <= 104
 '''
+class Solution:
+    def maxProfit(self, prices: list[int]) -> int:
+        max_profit = 0
+        min_price = float('inf')
+        for price in prices:
+            min_price = min(min_price, price)
+            max_profit = max(max_profit, price - min_price)
+        return max_profit
+    
+s1 = Solution()
+print(s1.maxProfit(prices=[7,1,5,3,6,4]))
+print(s1.maxProfit(prices=[7,1,5,3,6,4,7,1,5,3,6,4]))
+print(s1.maxProfit(prices=[7,6,4,3,1]))
