@@ -57,10 +57,21 @@ class Solution:
             left += 1
             right -= 1
         return True
- 
+    def isPalindromeClean(self, s: str) -> bool:
+        if len(s) == 0 or len(s) == 1:
+            return True
+        s = re.sub(r'\W+', '', s) # s = re.sub(r'[^a-zA-Z0-9]', '', s)
+        s = s.upper()
+        return all([s[i] == s[-i-1] for i in range(len(s)//2)])
+    
 
 s1 = Solution()
 print(s1.isPalindrome(s = "A man, a plan, a canal: Panama"))
 print(s1.isPalindrome(s = "A man, a plan, a canal: "))
 print(s1.isPalindromePtr(s = "A man, a plan, a canal: Panama"))
 print(s1.isPalindromePtr(s = "A man, a plan, a canal: "))
+print(s1.isPalindromeClean(s = "A man, a plan, a canal: Panama"))
+print(s1.isPalindromeClean(s = "A man, a plan, a canal: "))
+print(s1.isPalindromeClean(s = "race a car"))
+print(s1.isPalindromeClean(s = " "))
+print(s1.isPalindromeClean(s = ""))
