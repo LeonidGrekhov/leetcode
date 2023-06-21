@@ -35,3 +35,26 @@ Constraints:
 -105 <= nums[i] <= 105
 
 '''
+class Solution:
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
+        result = []
+        nums.sort()
+        for i, a in enumerate(nums):
+            if i > 0 and a == nums[i - 1]:
+                continue
+            left, right = i + 1, len(nums) - 1
+            while left < right:
+                curSum = a + nums[left] + nums[right]
+                if curSum > 0:
+                    right -= 1
+                elif curSum < 0:
+                    left += 1
+                else:
+                    result.append([a, nums[left], nums[right]])
+                    left += 1
+                    while nums[left] == nums[left - 1] and left < right:
+                        left += 1
+        return result
+    
+s1 = Solution()
+print(s1.threeSum(nums = [-1,0,1,2,-1,-4]))
