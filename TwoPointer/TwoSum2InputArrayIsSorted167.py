@@ -37,3 +37,17 @@ numbers is sorted in non-decreasing order.
 -1000 <= target <= 1000
 The tests are generated such that there is exactly one solution.
 '''
+class Solution:
+    def twoSum(self, numbers: list[int], target: int) -> list[int]:
+        left, right = 0, len(numbers) - 1
+        while left < right:
+            curSum = numbers[left] + numbers[right]
+            if curSum > target:
+                right -= 1
+            elif curSum < target:
+                left += 1
+            else:
+                return [left + 1, right + 1]
+            
+s1 = Solution()
+print(s1.twoSum(numbers=[2,7,11,15], target = 9))
