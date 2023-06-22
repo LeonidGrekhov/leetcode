@@ -37,7 +37,7 @@ numbers is sorted in non-decreasing order.
 -1000 <= target <= 1000
 The tests are generated such that there is exactly one solution.
 '''
-import timeit
+
 class Solution:
     def twoSum(self, numbers: list[int], target: int) -> list[int]:
         left, right = 0, len(numbers) - 1
@@ -62,10 +62,6 @@ class Solution:
                     low = mid + 1
         return None
             
-
-    
-
 s1 = Solution()
 print(s1.twoSum(numbers=[2,7,11,15], target = 9))
-
 print(s1.twoSumBinary(numbers=[2,7,11,15], target = 9))
