@@ -88,7 +88,7 @@ class Solution:
             second.next = tmp1
             first, second = tmp1, tmp2
         self.printHead(head)
-        
+        return head
     def printHead(self, head):
         temp = head
         while temp:
