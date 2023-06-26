@@ -65,7 +65,6 @@ class Solution:
         Do not return anything, modify head in-place instead.
         """
         # find middle
-        self.printHead(head)
         slow, fast = head, head.next
         while fast and fast.next:
             slow = slow.next
@@ -87,17 +86,8 @@ class Solution:
             first.next = second
             second.next = tmp1
             first, second = tmp1, tmp2
-        self.printHead(head)
         return head
-    def printHead(self, head):
-        temp = head
-        while temp:
-                if temp.next:
-                    end = "->"
-                else:
-                    end = "\n"
-                print(temp.val,end=end)
-                temp = temp.next
+  
     
 
 list1 = LinkedList()
