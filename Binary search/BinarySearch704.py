@@ -25,3 +25,18 @@ Constraints:
 All the integers in nums are unique.
 nums is sorted in ascending order.
 '''
+class Solution:
+    def search(self, nums: list[int], target: int) -> int:
+        left, right = 0, len(nums) - 1 #set pointers to both sides of the array
+        while left <= right:
+            mid = (left + right) // 2 # find the middle of the array
+            if target < nums[mid]: # if taget is less than middle
+                right = mid - 1
+            elif target > nums[mid]: # if taget is greater than middle
+                left = mid + 1 
+            elif target == nums[mid]:                  
+                return mid
+        return -1
+
+s1 = Solution()
+print(s1.search(nums=[-1,0,3,5,9,12], target=13))
