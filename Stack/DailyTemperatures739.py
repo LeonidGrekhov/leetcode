@@ -27,8 +27,15 @@ Constraints:
 30 <= temperatures[i] <= 100
 '''
 class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        res = [0] * len(temperatures)
+    def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
+        res = [0] * len(temperatures) #inicialized with 0 for results default value
         stack = []  # pair: [temp, index]
+        for i, t in enumerate(temperatures): #i is the index t is the temperature
+            while stack and t > stack[-1][0]: # check if the top of stack is greater than current temp
+                stackTemp, stackIndex = stack.pop() #temp, index
+                res[stackIndex] = i - stackIndex #calculate day difference 
+            stack.append((t, i))
 
         return res
+s1 = Solution()
+print(s1.dailyTemperatures(temperatures = [73,74,75,71,69,72,76,73]))
