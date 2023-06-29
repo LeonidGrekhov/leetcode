@@ -26,3 +26,19 @@ Constraints:
 '''
 class Solution:
     def longestConsecutive(self, nums: list[int]) -> int:
+        numsSet = set(nums)
+        longest = 0
+
+        for n in nums:
+            #check if its the start of sequence
+            if(n - 1) not in numsSet:
+                length = 0
+                while (n + length) in numsSet:
+                    length+=1
+                longest = max(length, longest)
+        return longest
+    
+s1 = Solution()
+print(s1.longestConsecutive(nums=[100,4,200,1,3,2]))
+print(s1.longestConsecutive(nums=[0,3,7,2,5,8,4,6,0,1]))
+
