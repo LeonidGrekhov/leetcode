@@ -48,14 +48,14 @@ Output:
 Explanation: Joe is the only employee who earns more than his manager.
 */
 
-create table employee (id INT NOT NULL auto_increment, name varchar(255) NOT NULL, salary INT, managerId INT, primary key (id) );
+CREATE TABLE employee (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255) NOT NULL, salary INT, managerId INT, PRIMARY KEY (id) );
 INSERT INTO `175_combine_two_tables`.`employee` (`id`, `name`,`salary`, `managerId`) VALUES ('1', 'Joe', '70000', '3');
 INSERT INTO `175_combine_two_tables`.`employee` (`id`, `name`,`salary`, `managerId`) VALUES ('2', 'Henry', '80000', '4');
 INSERT INTO `175_combine_two_tables`.`employee` (`id`, `name`,`salary`) VALUES ('3', 'Sam', '60000');
 INSERT INTO `175_combine_two_tables`.`employee` (`id`, `name`,`salary`) VALUES ('4', 'Max', '90000');
-select * from employee;
+SELECT * FROM employee;
 
-select e1.Name AS employee
-from employee e1 JOIN employee e2
-on e1.managerID = e2.id
-where e1.salary > e2.salary;
+SELECT e1.Name AS employee
+FROM employee e1 JOIN employee e2
+ON e1.managerID = e2.id
+WHERE e1.salary > e2.salary;
