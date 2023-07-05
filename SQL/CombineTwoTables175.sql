@@ -1,4 +1,4 @@
-'''
+/*
 175. Combine Two Tables
 Easy
 
@@ -65,7 +65,7 @@ Output:
 Explanation: 
 There is no address in the address table for the personId = 1 so we return null in their city and state.
 addressId = 1 contains information about the address of personId = 2.
-'''
+*/
 # Write your MySQL query statement belowfirstName
 USE 175_combine_two_tables;
 
