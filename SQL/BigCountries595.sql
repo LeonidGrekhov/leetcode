@@ -62,4 +62,14 @@ INSERT INTO World (name, continent, area, population, gdp) VALUES ('Algeria', 'A
 INSERT INTO World (name, continent, area, population, gdp) VALUES ('Andorra', 'Europe', '468', '78115', '3712000000');
 INSERT INTO World (name, continent, area, population, gdp) VALUES ('Angola', 'Africa', '1246700', '20609294', '100990000000');
 
-SELECT name, population, area FROM world WHERE area > 3000000 OR population >25000000;
+SELECT name, population, area FROM world WHERE area >= 3000000 OR population >= 25000000;
+#union
+SELECT name, population, area
+FROM World
+WHERE area >= 3000000 
+
+UNION
+
+SELECT name, population, area
+FROM World
+WHERE population >= 25000000;
